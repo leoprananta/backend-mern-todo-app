@@ -66,7 +66,7 @@ todoRoutes.route('/add').post(function(req, res) {
 });
 
 todoRoutes.route('/:id').delete(function(req, res) {
-    Todo.findOneAndDelete(req.params.id, function(err, todo) {
+    Todo.findByIdAndDelete(req.params.id, function(err, todo) {
         if (!todo)
             res.status(404).send("data is not found");
         else
